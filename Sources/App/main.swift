@@ -1,5 +1,6 @@
 import Vapor
 import HTTP
+import Foundation
 
 let drop = Droplet()
 
@@ -14,7 +15,8 @@ drop.post("/system/git") { request in
         throw Abort.badRequest
     }
     let json = try JSON(bytes: bytes)
-    print(json)
+    let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
+    print(string)
     let response = Response(status: .ok, body: "")
     return response
 }
