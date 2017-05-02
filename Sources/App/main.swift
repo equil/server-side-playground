@@ -16,7 +16,7 @@ drop.post("/system/git") { request in
     }
     let json = try JSON(bytes: bytes)
     let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
-    print(string)
+    print(string!)
     let response = Response(status: .ok, body: "")
     return response
 }
