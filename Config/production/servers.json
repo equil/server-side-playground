@@ -1,0 +1,16 @@
+{
+    "default": {
+        "port": "80",
+        "host": "0.0.0.0",
+        "securityLayer": "none"
+    },
+    "secure": {
+        "port": "443",
+        "host": "0.0.0.0",
+        "securityLayer": "tls",
+        "tls": {
+            "certificates": "none",
+            "signature": "selfSigned"
+        }
+    },
+}
