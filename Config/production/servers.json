@@ -1,9 +1,4 @@
 {
-    "default": {
-        "port": "80",
-        "host": "0.0.0.0",
-        "securityLayer": "none"
-    },
     "secure": {
         "port": "443",
         "host": "0.0.0.0",
@@ -11,6 +6,7 @@
         "tls": {
             "certificates": "none",
             "signature": "selfSigned",
+            "verifyHost": false,
             "verifyCertificates": false
         }
     }
