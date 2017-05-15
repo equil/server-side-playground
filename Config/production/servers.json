@@ -10,8 +10,8 @@
         "securityLayer": "tls",
         "tls": {
             "certificates": "files",
-            "certificateFile": "../cert.pem",
-            "privateKeyFile": "../key.pem",
+            "certificateFile": "/private/playground/cert.pem",
+            "privateKeyFile": "/private/playground/key.pem",
             "signature": "selfSigned"
         }
     }
