@@ -1,13 +1,18 @@
 {
     "default": {
+        "port": "80",
+        "host": "0.0.0.0",
+        "securityLayer": "none"
+    },
+    "secure": {
         "port": "443",
         "host": "0.0.0.0",
         "securityLayer": "tls",
         "tls": {
-            "certificates": "none",
-            "signature": "selfSigned",
-            "verifyHost": false,
-            "verifyCertificates": false
+            "certificates": "files",
+            "certificateFile": "../cert.pem",
+            "privateKeyFile": "../key.pem",
+            "signature": "selfSigned"
         }
     }
 }

@@ -1,13 +1,7 @@
 {
-    "default": {
-        "port": "443",
-        "host": "0.0.0.0",
-        "securityLayer": "tls",
-        "tls": {
-            "certificates": "none",
-            "signature": "selfSigned",
-            "verifyHost": false,
-            "verifyCertificates": false
-        }
-    }
+	"default": {
+		"port": "$PORT:8080",
+		"host": "0.0.0.0",
+		"securityLayer": "none"
+	}
 }
