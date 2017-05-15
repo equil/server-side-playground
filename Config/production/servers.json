@@ -10,7 +10,8 @@
         "securityLayer": "tls",
         "tls": {
             "certificates": "none",
-            "signature": "selfSigned"
+            "signature": "selfSigned",
+            "verifyCertificates": false
         }
     }
 }
