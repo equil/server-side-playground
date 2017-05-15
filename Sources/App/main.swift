@@ -23,4 +23,6 @@ drop.post("/system/git") { request in
 
 drop.resource("posts", PostController())
 
+print(drop.workDir)
+
 drop.run()
