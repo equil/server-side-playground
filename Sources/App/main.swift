@@ -10,13 +10,17 @@ drop.get { req in
     ])
 }
 
+try drop.addProvider(RootModule.self)
+
 drop.post("/system/git") { request in
     guard let bytes = request.body.bytes else {
         throw Abort.badRequest
     }
     let json = try JSON(bytes: bytes)
     let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
-    print(string!)
+    
+    
+    
     let response = Response(status: .ok, body: "")
     return response
 }
