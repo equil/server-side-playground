@@ -1,5 +1,5 @@
 {
-    "secure": {
+    "default": {
         "port": "443",
         "host": "0.0.0.0",
         "securityLayer": "tls",
