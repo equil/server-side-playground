@@ -26,21 +26,17 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                 throw Abort.badRequest
             }
             let json = try JSON(bytes: bytes)
-            let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
         
-            defer {
-                if let ref = json["ref"]?.string,
-                   ref == "refs/heads/master" {
-                    
-                    let console = Terminal(arguments: [])
-                    
-                    if let script = self.script,
-                       let directory = self.directory {
-                        try! console.foregroundExecute(commands: ["pwd"])
-                        //try! console.execute(program: "cd \(directory) && \(script)", arguments: [])
-                    }
-                    
+            if let ref = json["ref"]?.string,
+               ref == "refs/heads/master" {
+                
+                let console = Terminal(arguments: [])
+                
+                if let script = self.script,
+                   let directory = self.directory {
+                    try? console.execute(program: "\(directory)/\(script)", arguments: ["\(directory)"])
                 }
+                
             }
         
             let response = Response(status: .ok, body: "")
