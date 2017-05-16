@@ -32,6 +32,7 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                    ref == "refs/heads/master" {
                     
                     let console = Terminal(arguments: [])
+                    
                     if let script = self.script {
                         try? console.execute(program: script, arguments: [])
                     }
