@@ -4,8 +4,7 @@ import Foundation
 import Console
 
 let console = Terminal(arguments: [])
-
-try! console.execute(program: "bash", arguments: ["/home/ubuntu/redeploy.sh"])
+try! console.execute(program: "ssh", arguments: ["-i", "\"~/.ssh/budgetnode_rsa\"", "ubuntu@172.82.152.9", "./redeploy.sh"])
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
