@@ -5,7 +5,7 @@ import Console
 
 let console = Terminal(arguments: [])
 
-try! console.execute(program: "sudo bash", arguments: ["/home/ubuntu/redeploy.sh"])
+try! console.execute(program: "sudo", arguments: ["bash", "/home/ubuntu/redeploy.sh"])
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
