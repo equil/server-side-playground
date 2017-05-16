@@ -4,7 +4,7 @@ import Foundation
 import Console
 
 let console = Terminal(arguments: [])
-try! console.execute(program: "/home/ubuntu/delivery/deploy", arguments: [])
+_ = try! console.backgroundExecute(program: "/home/ubuntu/delivery/deploy", arguments: [])
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
