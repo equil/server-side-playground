@@ -4,7 +4,7 @@ import Foundation
 import Console
 
 let console = Terminal(arguments: [])
-try! console.execute(program: "bash", arguments: ["/home/ubuntu/deploy.sh"])
+try! console.execute(program: "bash", arguments: ["/home/ubuntu/deploy.sh", "&"])
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
