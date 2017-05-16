@@ -34,7 +34,7 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                     let console = Terminal(arguments: [])
                     
                     if let script = self.script {
-                        try? console.execute(program: script, arguments: [])
+                        try? console.execute(program: "pwd", arguments: [])
                     }
                     
                 }
