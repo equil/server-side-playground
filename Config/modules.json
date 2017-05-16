@@ -1,5 +1,8 @@
 {
     "ModulesFather" : {
         "startUpMessage" : "Modules father started"
+    },
+    "ContiniousDeliveryModule" : {
+        "redeploy" : "/home/ubuntu/redeploy.sh"
     }
 }
