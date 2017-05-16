@@ -9,13 +9,51 @@
 import Foundation
 import Vapor
 
-open class PlaygroundModule : Vapor.Provider {
+public enum PlaygroundModuleError : Error {
+    case ConfigFileNotPresenter
+}
+
+public protocol PlaygroundModuleProtocol : Vapor.Provider  {
+
+    init()
     
-    public let provided: Providable //deprecated
+    func configure(with config: Config)
+    
+    var renderer : ViewRenderer.Type? { get }
+    
+}
+
+open class PlaygroundModule : PlaygroundModuleProtocol {
+    
+    private var name : String {
+        return String(describing: type(of: self))
+    }
+    
+    public var provided: Providable {
+        //deprecated by vapor
+        return Providable()
+    }
+    
+    public required convenience init(config: Config) throws {
+        self.init()
+        
+        guard let modulesConfig = config["modules"] else {
+            throw PlaygroundModuleError.ConfigFileNotPresenter
+        }
+        
+        if let config = modulesConfig[name] {
+            self.configure(with: config)
+        }
+        
+    }
+    
+    public var renderer : ViewRenderer.Type? {
+        return nil
+    }
     
     public func boot(_ drop: Droplet) {
-        //Override this method to add dependencies for droplet
-        //such as middleware, cache policies, etc
+        let renderer = self.renderer ?? LeafRenderer.self
+        drop.view = renderer.init(viewsDir: "\(drop.viewsDir)/\(name)")
     }
     
     public func afterInit(_ drop: Droplet) {
@@ -26,7 +64,12 @@ open class PlaygroundModule : Vapor.Provider {
         
     }
     
-    public required init(config: Config) throws {
-        provided = Providable()
+    public required init() {
+        
     }
+
+    public func configure(with config: Config) {
+        
+    }
+    
 }
