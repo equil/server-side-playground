@@ -4,6 +4,6 @@
     },
     "ContiniousDeliveryModule" : {
         "dir" : "/Users/alexey.rogatkin/Documents/Twoot/",
-        "script" : "script.sh"
+        "script" : "./script.sh"
     }
 }
