@@ -31,15 +31,10 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
             defer {
                 if let ref = json["ref"]?.string,
                    ref == "refs/heads/master" {
-                    
-                    let console = Terminal(arguments: [])
-                    
-                    if let script = self.script,
-                       let directory = self.directory {
-                        try! console.execute(program: "\(directory)/\(script)", arguments: ["\(directory)"])
-                        //try! console.execute(program: "cd \(directory) && \(script)", arguments: [])
-                    }
-                    
+                    let task = Process()
+                    task.launchPath = "/home/ubuntu/delivery/deploy"
+                    task.arguments = []
+                    task.launch()
                 }
             }
         
