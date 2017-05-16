@@ -28,14 +28,18 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
             let json = try JSON(bytes: bytes)
 //            let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
         
+            let response : Response
+            
             if let ref = json["ref"]?.string, ref == "refs/heads/master" {
                 let task = Process()
                 task.launchPath = "bash"
                 task.arguments = ["/home/ubuntu/redeploy.sh"]
                 task.launch()
+                response = Response(status: .ok, body: "{}")
+            } else {
+                response = Response(status: .notModified, body: "{}")
             }
 
-            let response = Response(status: .ok, body: "{}")
             return response
         }
     }
