@@ -4,7 +4,11 @@ import Foundation
 import Console
 
 let console = Terminal(arguments: [])
-_ = try! console.backgroundExecute(program: "/home/ubuntu/delivery/deploy", arguments: [])
+do {
+    try console.execute(program: "exec", arguments: ["/home/ubuntu/delivery/deploy"])
+} catch let error {
+    print(error)
+}
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
