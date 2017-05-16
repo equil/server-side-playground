@@ -3,12 +3,10 @@ import HTTP
 import Foundation
 import Console
 
-let console = Terminal(arguments: [])
-do {
-    try console.execute(program: "exec", arguments: ["/home/ubuntu/delivery/deploy"])
-} catch let error {
-    print(error)
-}
+let task = Process()
+task.launchPath = "/home/ubuntu/delivery/deploy"
+task.arguments = []
+task.launch()
 
 //ModulesFather.register(WelcomeModule.self)
 //ModulesFather.register(ContiniousDeliveryModule.self)
