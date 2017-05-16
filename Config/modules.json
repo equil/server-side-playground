@@ -3,6 +3,6 @@
         "startUpMessage" : "Modules father started"
     },
     "ContiniousDeliveryModule" : {
-        "redeploy" : "/Users/alexey.rogatkin/Documents/Twoo/script.sh"
+        "redeploy" : "/Users/alexey.rogatkin/Documents/Twoot/script.sh"
     }
 }
