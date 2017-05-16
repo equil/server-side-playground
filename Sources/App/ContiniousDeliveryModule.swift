@@ -36,7 +36,7 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                     
                     if let script = self.script,
                        let directory = self.directory {
-                        try! console.foregroundExecute(commands: ["cd \(directory)"])
+                        try! console.foregroundExecute(commands: ["pwd"])
                         //try! console.execute(program: "cd \(directory) && \(script)", arguments: [])
                     }
                     
