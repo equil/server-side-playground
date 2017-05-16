@@ -26,18 +26,16 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                 throw Abort.badRequest
             }
             let json = try JSON(bytes: bytes)
-            let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
+//            let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
         
-            defer {
-                if let ref = json["ref"]?.string, ref == "refs/heads/master" {
-                    let task = Process()
-                    task.launchPath = "setsid"
-                    task.arguments = ["/home/ubuntu/delivery/deploy"]
-                    task.launch()
-                }
+            if let ref = json["ref"]?.string, ref == "refs/heads/master" {
+                let task = Process()
+                task.launchPath = "bash"
+                task.arguments = ["/home/ubuntu/redeploy.sh"]
+                task.launch()
             }
-        
-            let response = Response(status: .ok, body: "")
+
+            let response = Response(status: .ok, body: "{}")
             return response
         }
     }
