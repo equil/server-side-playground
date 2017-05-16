@@ -14,6 +14,7 @@ import Console
 public final class ContiniousDeliveryModule : PlaygroundModule {
     
     private var script : String? = nil
+    private var directory : String? = nil
     
     public required init() {
         super.init()
@@ -33,8 +34,9 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                     
                     let console = Terminal(arguments: [])
                     
-                    if let script = self.script {
-                        try? console.execute(program: script, arguments: [])
+                    if let script = self.script,
+                       let directory = self.directory {
+                        try? console.execute(program: "(cd \(directory) && \(script))", arguments: [])
                     }
                     
                 }
@@ -46,7 +48,8 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
     }
     
     public override func configure(with config: Config) {
-        script = config["redeploy"]?.string
+        script = config["script"]?.string
+        directory = config["dir"]?.string
     }
 
 }
