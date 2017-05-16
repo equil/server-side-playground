@@ -1,26 +1,18 @@
 import Vapor
 import HTTP
 import Foundation
+import Console
 
-ModulesFather.register(WelcomeModule.self)
-ModulesFather.register(ContiniousDeliveryModule.self)
+let console = Terminal(arguments: [])
 
-let drop = Droplet()
-try drop.addProvider(ModulesFather.self)
+try! console.execute(program: "bash", arguments: ["/home/ubuntu/redeploy.sh"])
 
-//drop.post("/system/git") { request in
-//    guard let bytes = request.body.bytes else {
-//        throw Abort.badRequest
-//    }
-//    let json = try JSON(bytes: bytes)
-//    let string = String(data: Data(bytes: try json.serialize(prettyPrint: true)), encoding: .utf8)
-//    
-//    
-//    
-//    let response = Response(status: .ok, body: "")
-//    return response
-//}
+//ModulesFather.register(WelcomeModule.self)
+//ModulesFather.register(ContiniousDeliveryModule.self)
 
-print(drop.workDir)
+//let drop = Droplet()
+//try drop.addProvider(ModulesFather.self)
 
-drop.run()
+//print(drop.workDir)
+
+//drop.run()
