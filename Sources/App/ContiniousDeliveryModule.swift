@@ -33,7 +33,8 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
             if let ref = json["ref"]?.string, ref == "refs/heads/master" {
                 let task = Process()
                 task.launchPath = "bash"
-                task.arguments = ["/home/ubuntu/redeploy.sh"]
+                task.currentDirectoryPath = "/home/ubuntu"
+                task.arguments = ["./redeploy.sh"]
                 task.launch()
                 response = Response(status: .ok, body: "{}")
             } else {
