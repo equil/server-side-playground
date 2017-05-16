@@ -29,11 +29,13 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
         
             defer {
                 if let ref = json["ref"]?.string,
-                    ref == "refs/heads/master" {
-                }
-                let console = Terminal(arguments: [])
-                if let script = self.script {
-                    try? console.execute(program: script, arguments: [])
+                   ref == "refs/heads/master" {
+                    
+                    let console = Terminal(arguments: [])
+                    if let script = self.script {
+                        try? console.execute(program: script, arguments: [])
+                    }
+                    
                 }
             }
         
