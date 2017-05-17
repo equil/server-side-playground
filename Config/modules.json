@@ -3,7 +3,9 @@
         "startUpMessage" : "Modules father started"
     },
     "ContiniousDeliveryModule" : {
-        "dir" : "/home/ubuntu",
-        "script" : "redeploy.sh"
+        "listeningPath" : "/cd",
+        "command" : "/home/ubuntu/delivery/deploy",
+        "changedDetectedStatus" : 201,
+        "changedNotDetectedStatus" : 304
     }
 }

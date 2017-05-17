@@ -17,7 +17,7 @@ public protocol PlaygroundModuleProtocol : Vapor.Provider  {
 
     init()
     
-    func configure(with config: Config)
+    func configure(with config: Config) throws
     
     var renderer : ViewRenderer.Type? { get }
     
@@ -42,7 +42,7 @@ open class PlaygroundModule : PlaygroundModuleProtocol {
         }
         
         if let config = modulesConfig[name] {
-            self.configure(with: config)
+            try self.configure(with: config)
         }
         
     }
@@ -68,7 +68,7 @@ open class PlaygroundModule : PlaygroundModuleProtocol {
         
     }
 
-    public func configure(with config: Config) {
+    public func configure(with config: Config) throws {
         
     }
     

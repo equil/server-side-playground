@@ -38,7 +38,7 @@ public final class ModulesFather : PlaygroundModule {
         }
     }
     
-    public override func configure(with config: Config) {
+    public override func configure(with config: Config) throws {
         print(config["startUpMessage"]!.string!)
     }
 }
