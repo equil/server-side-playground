@@ -12,11 +12,11 @@ To participate in playground and try/implement your server-side projects you mus
 
 ### Start locally and debug
 
-To start and debug the server locally you need to generate Xcode project with Swift Package Manager and start application as usual from XCode
-
+To start and debug the server locally you need to generate Xcode project with Swift Package Manager
 ```bash
 swift package generate-xcodeproj
 ```
+Then, you need to enable Use custom working directory (In Edit scheme... > Run) and set directory to project root directory. After this preparations you can start application as usual from Xcode
 
 Server will start at http://0.0.0.0:8080 without https support and you can use https://ngrok.com/ to debug integration with external services that require access to the server endpoints
 
