@@ -14,7 +14,7 @@ public final class WelcomeModule : PlaygroundModule {
     public override func afterInit(_ drop: Droplet) {
         drop.get { req in
             return try drop.view.make("welcome", [
-                "message": drop.localization[req.lang, "welcome", "subtitle"]
+                "message": drop.localization[req.lang, "welcome", "title"]
             ])
         }
     }
