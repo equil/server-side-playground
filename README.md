@@ -10,7 +10,18 @@ Server located at http://172.82.152.9 VPS with static IPv4 (support both http an
 
 To participate in playground and try/implement your server-side projects you must contact me (you can find me in Telegram @equil or email me alexey.rogatkin at gmail.com) and I'll add you as a contributor in the repo.
 
+### Start locally and debug
+
+To start and debug the server locally you need to generate Xcode project with Swift Package Manager and start application as usual from XCode
+
+```bash
+swift package generate-xcodeproj
+```
+
 ## Ground rules
+
+* Don't commit any files that not related to linux build in repository (e.g. Xcode project file)
+* ...
 
 Coming soon
 
