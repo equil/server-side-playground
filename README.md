@@ -18,6 +18,8 @@ To start and debug the server locally you need to generate Xcode project with Sw
 swift package generate-xcodeproj
 ```
 
+Server will start at http://0.0.0.0:8080 without https support and you can use https://ngrok.com/ to debug integration with external services that require access to the server endpoints
+
 ## Ground rules
 
 * Don't commit any files that not related to linux build in repository (e.g. Xcode project file)
