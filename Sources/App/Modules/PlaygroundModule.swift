@@ -10,7 +10,7 @@ import Foundation
 import Vapor
 
 public enum PlaygroundModuleError : Error {
-    case ConfigFileNotPresenter
+    case ConfigFileNotPresented
 }
 
 public protocol PlaygroundModuleProtocol : Vapor.Provider  {
@@ -38,7 +38,7 @@ open class PlaygroundModule : PlaygroundModuleProtocol {
         self.init()
         
         guard let modulesConfig = config["modules"] else {
-            throw PlaygroundModuleError.ConfigFileNotPresenter
+            throw PlaygroundModuleError.ConfigFileNotPresented
         }
         
         if let config = modulesConfig[name] {
@@ -47,29 +47,18 @@ open class PlaygroundModule : PlaygroundModuleProtocol {
         
     }
     
-    public var renderer : ViewRenderer.Type? {
-        return nil
-    }
-    
     public func boot(_ drop: Droplet) {
         let renderer = self.renderer ?? LeafRenderer.self
         drop.view = renderer.init(viewsDir: "\(drop.viewsDir)/\(name)")
     }
     
-    public func afterInit(_ drop: Droplet) {
-        
-    }
     
-    public func beforeRun(_: Droplet) {
-        
-    }
-    
-    public required init() {
-        
-    }
+    public required init() {}
 
-    public func configure(with config: Config) throws {
-        
-    }
+    // Remember, that empty default implementations in extension of PlaygroundModuleProtocol will not work
+    public var renderer : ViewRenderer.Type? { return nil }
+    public func configure(with config: Config) throws {}
+    public func afterInit(_ drop: Droplet) {}
+    public func beforeRun(_: Droplet) {}
     
 }

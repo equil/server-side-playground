@@ -8,6 +8,7 @@
 
 import Foundation
 import Vapor
+import HTTP
 
 public final class WelcomeModule : PlaygroundModule {
     
@@ -16,6 +17,9 @@ public final class WelcomeModule : PlaygroundModule {
             return try drop.view.make("welcome", [
                 "message": drop.localization[req.lang, "welcome", "title"]
             ])
+        }
+        drop.get("/github") { req in
+            return Response(redirect: "https://github.com/equil/server-side-playground")
         }
     }
     
