@@ -36,6 +36,7 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
                 task.currentDirectoryPath = "/home/ubuntu"
                 task.arguments = ["./redeploy.sh"]
                 task.launch()
+                print(task.terminationReason)
                 response = Response(status: .created, body: "{}")
             } else {
                 response = Response(status: .notModified, body: "{}")
