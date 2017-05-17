@@ -32,8 +32,7 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
             
             if let ref = json["ref"]?.string, ref == "refs/heads/master" {
                 let task = Process()
-                task.launchPath = "(/home/ubuntu/delivery/redeploy &)"
-                task.currentDirectoryPath = "/home/ubuntu"
+                task.launchPath = "/home/ubuntu/delivery/deploy &"
                 task.arguments = []
                 task.launch()
                 response = Response(status: .created, body: "{}")
