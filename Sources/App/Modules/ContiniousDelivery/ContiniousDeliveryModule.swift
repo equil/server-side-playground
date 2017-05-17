@@ -32,6 +32,8 @@ public final class ContiniousDeliveryModule : PlaygroundModule {
     }
     
     public override func boot(_ drop: Droplet) {
+        super.boot(drop)
+        
         drop.post(self.endpoint!) { request in
             guard let bytes = request.body.bytes else {
                 throw Abort.badRequest
